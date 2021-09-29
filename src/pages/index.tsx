@@ -12,6 +12,7 @@ import useWalletBalance from '../hooks/use-wallet-balance';
 import Countdown from 'react-countdown';
 import { WalletDisconnectButton, WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 
+import Test from './index2.tsx';
 
 const Home = () => {
   const [balance] = useWalletBalance()
@@ -84,6 +85,8 @@ const Home = () => {
         <WalletMultiButton />
         <WalletDisconnectButton />
       </div>
+
+      <Test/>
     </main>
   );
 };
