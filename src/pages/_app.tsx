@@ -3,6 +3,8 @@ import { useMemo } from "react";
 import { clusterApiUrl } from "@solana/web3.js";
 import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
 
+import "../staticv2/css/custom.css" 
+
 let WALLETS: any = {
   getPhantomWallet: () => ({ name: 'Phantom' }),
   getSolflareWallet: () => ({ name: 'Solflare' }),
