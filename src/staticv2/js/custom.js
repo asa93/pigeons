@@ -1,6 +1,8 @@
 // Functions
 function scrollbutton(){
-	if( $(window).scrollTop() >= $("#main-btn").offset().top ){
+	$("#main-btn .btn").removeClass("position-relative").addClass("position-fixed");
+	if( $(window).scrollTop() >= 0 //$("#main-btn").offset().top 
+	){
 		$("#main-btn .btn").removeClass("position-relative").addClass("position-fixed");
 	}else{
 		$("#main-btn .btn").removeClass("position-fixed").addClass("position-relative");

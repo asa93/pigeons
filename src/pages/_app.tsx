@@ -4,6 +4,7 @@ import { clusterApiUrl } from "@solana/web3.js";
 import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
 
 import "../staticv2/css/custom.css" 
+import "../staticv2/css/more.css" 
 
 let WALLETS: any = {
   getPhantomWallet: () => ({ name: 'Phantom' }),

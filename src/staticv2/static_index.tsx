@@ -5,25 +5,30 @@ import { clusterApiUrl } from "@solana/web3.js";
 import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
 import React from "react";
 
-import WalletNav from '../pages/walletNav.tsx'
-
+//import WalletNav from '../pages/walletNav.tsx'
+ 
 import $ from 'jquery';
 
-class Static extends React.Component{
-  constructor(props){
-    super(props);
- 
-  }
+import { useState } from "react";
+import { Toaster } from 'react-hot-toast';
+import { useWallet } from "@solana/wallet-adapter-react";
 
-  componentDidMount(){
- 
-      // Functions
-    console.log("test", require("./js/custom.js"))
+import {
+  shortenAddress,
+} from "../utils/candy-machine";
+import useCandyMachine from '../hooks/use-candy-machine';
+import useWalletBalance from '../hooks/use-wallet-balance';
+import Countdown from 'react-countdown';
+import { WalletDisconnectButton, WalletMultiButton } from '@solana/wallet-adapter-react-ui';
+import WalletNav from "../pages/walletNav";
 
-  }
+function Static(props){
 
-  render(){
+  const [balance] = useWalletBalance()
+  const [isActive, setIsActive] = useState(false); // true when countdown completes
+  const wallet = useWallet();
 
+  const { isSoldOut, mintStartDate, isMinting, onMint, onMintMultiple, nftsData } = useCandyMachine()
 
       return (
  
@@ -81,17 +86,22 @@ class Static extends React.Component{
         </div>
       </nav>
     
-    <WalletNav/>
+
+      <WalletNav/>
 
       <main>
         
         <header id="connect">
+
           <div class="row my-auto py-7">
             <div class="col mw-xxl pt-9 mt-9 mt-lg-0">
               <div id="main-btn" class="p-1">
-                <button class="btn btn-primary position-relative">
+               {/*  <button class="btn btn-primary position-relative">
                   Connect your wallet
                 </button>
+              */}
+ 
+                
               </div>
               <div class="position-absolute w-100 p-6" style={{bottom: 0, left: 0}}>
                   <a class="btn btn-light" href="#welcome">
@@ -550,9 +560,7 @@ class Static extends React.Component{
       )
     }
   
-  }
  
-
   
   export default Static;
  
