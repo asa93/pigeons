@@ -9,8 +9,21 @@ import WalletNav from '../pages/walletNav.tsx'
 
 import $ from 'jquery';
 
- function Static(){
+class Static extends React.Component{
+  constructor(props){
+    super(props);
  
+  }
+
+  componentDidMount(){
+ 
+      // Functions
+    console.log("test", require("./js/custom.js"))
+
+  }
+
+  render(){
+
 
       return (
  
@@ -524,9 +537,9 @@ import $ from 'jquery';
           <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
 
-        <script>
+        <script src="https://raw.githubusercontent.com/asa93/custom.js/main/custom.js"> </script>
           
-        </script>
+        
          {/*
           <script src={require("./js/jquery-3.6.0.min.js").default.src}></script>
           <script src={require("./js/bootstrap.bundle.min.js").default.src} type="text/javascript"></script>
@@ -537,6 +550,7 @@ import $ from 'jquery';
       )
     }
   
+  }
  
 
   
