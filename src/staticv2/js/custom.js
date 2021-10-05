@@ -1,4 +1,8 @@
 // Functions
+
+
+console.log("test require", require("./include/carousel-" + "carousel-skins" + ".html") )
+
 function scrollbutton(){
 	$("#main-btn .btn").removeClass("position-relative").addClass("position-fixed");
 	if( $(window).scrollTop() >= 0 //$("#main-btn").offset().top 

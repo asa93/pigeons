@@ -21,6 +21,18 @@ import Countdown from 'react-countdown';
 import { WalletDisconnectButton, WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import WalletNav from "../pages/walletNav";
 
+import crsl from './js/carousels.js'
+
+const carousels = crsl.default
+
+function handleTrait(e:any){
+  console.log("handleTrait",e)
+  console.log("carousels", carousels["background"])
+  let trait = e.target.id.replace("-tab","")
+
+  console.log("trait", trait)
+}
+
 function Static(props:any){
 
   const [balance] = useWalletBalance()
@@ -251,7 +263,7 @@ function Static(props:any){
                   <div className="row pt-3 my-auto pt-md-4 flex-grow-0 flex-sm-grow-1 align-items-center">
                     <ul className="col-12 col-md-3 nav nav-pills justify-content-center pb-4 mx-auto mt-md-3 me-md-0">
                       <li className="nav-item" role="presentation">
-                        <button className="nav-link active-rose active" id="background-tab"  data-bs-toggle="pill" data-bs-target="#background" type="button" role="tab" aria-controls="background" aria-selected="true">Background</button>
+                        <button onClick={handleTrait} className="nav-link active-rose active" id="background-tab"  data-bs-toggle="pill" data-bs-target="#background" type="button" role="tab" aria-controls="background" aria-selected="true">Background</button>
                       </li>
                       <li className="nav-item" role="presentation">
                         <button className="nav-link active-primary" id="skins-tab"  data-bs-toggle="pill" data-bs-target="#skins" type="button" role="tab" aria-controls="skins" aria-selected="true">Feathers/Skins</button>
@@ -267,10 +279,12 @@ function Static(props:any){
                       </li>
                     </ul>
                     <div className="col-12 col-md-9 tab-content pt-0 pt-md-4" id="pills-tabContent">
-                        <div className="tab-pane fade" id="head" role="tabpanel" aria-labelledby="pill-head-tab">
+                        <div className="tab-pane fade loaded" id="head" role="tabpanel" aria-labelledby="pill-head-tab">
                           <div id="carouselhead" className="carousel slide" data-bs-ride="carousel">
                             <div className="carousel-inner">
-                           
+                            {
+                              carousels["header"]
+                            }
                             </div>
                               <button className="carousel-control-prev" type="button" data-bs-target="#carouselhead" data-bs-slide="prev">
                                 <span className="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -330,7 +344,9 @@ function Static(props:any){
                         <div className="tab-pane fade active show" id="background" role="tabpanel" aria-labelledby="pill-background-tab">
                           <div id="carouselbackground" className="carousel slide" data-bs-ride="carousel">
                             <div className="carousel-inner">
-                            
+                            {
+                              carousels["background"]
+                            }
                             </div>
                               <button className="carousel-control-prev" type="button" data-bs-target="#carouselbackground" data-bs-slide="prev">
                                 <span className="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -541,19 +557,14 @@ function Static(props:any){
                 </ul>
               </div>
           </footer>
-         
+                     
           <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossOrigin="anonymous"></script>
           <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossOrigin="anonymous"></script>
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossOrigin="anonymous"></script>
 
-        <script src="https://raw.githubusercontent.com/asa93/custom.js/main/custom.js" crossOrigin="anonymous"> </script>
+        <script   src="https://raw.githubusercontent.com/asa93/custom.js/main/custom.js" type="text/javascript" crossOrigin="anonymous" > </script>
           
-        
-         {/*
-          <script src={require("./js/jquery-3.6.0.min.js").default.src}></script>
-          <script src={require("./js/bootstrap.bundle.min.js").default.src} type="text/javascript"></script>
-          <script src={require("./js/custom.js").default.src} type="text/javascript"></script>
-         */}
+ 
       </body>
      
       )
