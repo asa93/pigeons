@@ -16,7 +16,7 @@ const style={
     marginTop:"2em"
 }
 
-const WalletNav = (props) => {
+const WalletNav = (props: any) => {
   const [balance] = useWalletBalance()
   const [isActive, setIsActive] = useState(false); // true when countdown completes
   const wallet = useWallet();
@@ -57,7 +57,7 @@ const WalletNav = (props) => {
       <div className="  flex-col justify-start items-start">
         {wallet.connected &&
           <button type="button"
-          class="btn btn-primary"
+          className="btn btn-primary"
           style={{"justifyContent": "space-between", "pointerEvents": "auto"}}
 
             disabled={isSoldOut || isMinting || !isActive}
@@ -80,7 +80,7 @@ const WalletNav = (props) => {
  
         {wallet.connected &&
           <button type="button"
-          class="btn btn-primary"
+          className="btn btn-primary"
           style={{"justifyContent": "space-between", "pointerEvents": "auto"}}
           
             disabled={isSoldOut || isMinting || !isActive}
