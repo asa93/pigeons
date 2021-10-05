@@ -283,7 +283,7 @@ function Static(props:any){
                           <div id="carouselhead" className="carousel slide" data-bs-ride="carousel">
                             <div className="carousel-inner">
                             {
-                              carousels["header"]
+                              carousels["head"]
                             }
                             </div>
                               <button className="carousel-control-prev" type="button" data-bs-target="#carouselhead" data-bs-slide="prev">
@@ -296,10 +296,12 @@ function Static(props:any){
                               </button>
                             </div>
                         </div>
-                        <div className="tab-pane fade" id="face" role="tabpanel" aria-labelledby="pill-face-tab">
+                        <div className="tab-pane fade loaded" id="face" role="tabpanel" aria-labelledby="pill-face-tab">
                           <div id="carouselface" className="carousel slide" data-bs-ride="carousel">
                             <div className="carousel-inner">
-                          
+                            {
+                              carousels["face"]
+                            }
                             </div>
                               <button className="carousel-control-prev" type="button" data-bs-target="#carouselface" data-bs-slide="prev">
                                 <span className="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -311,10 +313,12 @@ function Static(props:any){
                               </button>
                             </div>
                         </div>
-                        <div className="tab-pane fade" id="skins" role="tabpanel" aria-labelledby="pill-skins-tab">
+                        <div className="tab-pane fade loaded" id="skins" role="tabpanel" aria-labelledby="pill-skins-tab">
                           <div id="carouselskins" className="carousel slide" data-bs-ride="carousel">
                             <div className="carousel-inner">
-                            
+                            {
+                              carousels["skins"]
+                            }
                             </div>
                               <button className="carousel-control-prev" type="button" data-bs-target="#carouselskins" data-bs-slide="prev">
                                 <span className="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -326,10 +330,12 @@ function Static(props:any){
                               </button>
                             </div>
                         </div>
-                        <div className="tab-pane fade" id="clothing" role="tabpanel" aria-labelledby="pill-clothing-tab">
+                        <div className="tab-pane fade show" id="clothing" role="tabpanel" aria-labelledby="pill-clothing-tab">
                           <div id="carouselclothing" className="carousel slide" data-bs-ride="carousel">
                             <div className="carousel-inner">
-                             
+                            {
+                              carousels["clothing"]
+                            }
                             </div>
                               <button className="carousel-control-prev" type="button" data-bs-target="#carouselclothing" data-bs-slide="prev">
                                 <span className="carousel-control-prev-icon" aria-hidden="true"></span>
