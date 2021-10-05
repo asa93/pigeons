@@ -4,6 +4,7 @@ import { useMemo, useEffect } from "react";
 import { clusterApiUrl } from "@solana/web3.js";
 import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
 import React from "react";
+import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
 
 //import WalletNav from '../pages/walletNav.tsx'
 
@@ -53,6 +54,12 @@ function Static(props:any){
               </a>
             </div>
             
+            {
+              !isMobile &&
+            <div className="flex-grow-1 ps-2" style={{zIndex: 5000}}>    
+            <WalletNav/>
+            </div>
+            }
           <div className="navbar-collapse pt-5 pt-sm-0" id="offcanvas">
               <ul className="navbar-nav" id="mainNavbar">
                 <li className="nav-item">
@@ -94,11 +101,18 @@ function Static(props:any){
                 </span>
                 <span></span>
             </button>
+       
+            {
+              isMobile &&
+            <div className="flex-grow-1 ps-2" style={{zIndex: 5000}}>    
+            <WalletNav/>
+            </div>
+            }
+
         </div>
       </nav>
     
 
-      <WalletNav/>
 
       <main>
         
