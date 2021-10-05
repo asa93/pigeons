@@ -47,13 +47,14 @@ const WalletNav = (props) => {
       {wallet.connected &&
         <>
           <p>Balance: {(balance || 0).toLocaleString()} SOL  <br/>
+          ____________________  <br/>
            Available: {nftsData.itemsRemaining}  <br/>
            Minted: {nftsData.itemsRedeemed}   <br/>
            Total: {nftsData.itemsAvailable}</p>
         </>
       }
 
-      <div className="flex flex-col justify-start items-start">
+      <div className="  flex-col justify-start items-start">
         {wallet.connected &&
           <button type="button"
           class="btn btn-primary"
