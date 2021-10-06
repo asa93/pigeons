@@ -5,3 +5,7 @@
 .wallet-adapter-button-trigger {
     background-color: #ffb317!important;
 }
+
+button:not(:disabled), .wallet-adapter-button[disabled]{
+    line-height:1.2;
+}
