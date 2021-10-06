@@ -46,10 +46,10 @@ const WalletNav = (props: any) => {
 
       {wallet.connected &&
         <>
-          <p>Balance: {(balance || 0).toLocaleString()} SOL  <br/>
+          <p style={{fontSize:"0.7em"}}>Balance: {(balance || 0).toLocaleString()} SOL  <br/>
           ____________________  <br/>
-           Available: {nftsData.itemsRemaining}  <br/>
-           Minted: {nftsData.itemsRedeemed}   <br/>
+           Available: {nftsData.itemsRemaining}  / 
+           Minted: {nftsData.itemsRedeemed}  /
            Total: {nftsData.itemsAvailable}</p>
         </>
       }
