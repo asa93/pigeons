@@ -139,22 +139,22 @@ function Static(props:any){
        
         <section id="welcome" className="align-items-start min-h-0">
           <div className="row mw-md">
-            <div className="col-12 col-sm-10 col-md-12 p-5 p-md-7 bg-secondary-darken">
+            <div style={{zIndex:10}} className="col-12 col-sm-10 col-md-12 p-5 p-md-7 bg-secondary-darken">
                 <h1>Welcome</h1>
                     <article className="my-5">
                       <p>Pudgy Pigeons are a collection of programmatically and randomly generated NFTs on the Solana blockchain. The 1st generation of Pudgy Pigeons consists of 8,888 randomly assembled cute and (very) pudgy pigeons from over 250,000 total options and 158 traits hand drawn by French artist and illustrator, Tanguy Jestin. Each Pudgy Pigeon is composed of an unique set of background, face, hat, feather color and clothing. All Pudgy Pigeons’ traits are rare, but some are rarer than others with rarity ranging from common, uncommon, rare, epic, legendary and unique.</p>
                     </article>
             </div>
             <div className="bg-img bg-secondary" style={{"background": "url(images/welcome/welcome-bg-left.png) top left, url(images/welcome/welcome-bg-right.png) top right"}}>
-                  <div className="d-flex w-100 justify-content-left align-items-stretch h-100 pt-0 pt-sm-9 pt-xxl-8">
+                  <div style={{zIndex:0,backgroundColor:"#3dc1ff"}} className="d-flex w-100 justify-content-left align-items-stretch h-100 pt-0 pt-sm-9 pt-xxl-8">
                     <div className="w-50 mh-100 ratio ratio-1x1">
                       <div>
                         
-                        <img src={require("./images/welcome/welcome-left.png").default.src} className="h-100"/>
+                        <img style={{maxWidth:"none"}} src={require("./images/welcome/welcome-left.png").default.src} className="h-100"/>
                       </div>
                     </div>
                     <div className="d-block d-sm-none d-lg-flex w-50 mh-100">
-                        <img src={require("./images/welcome/welcome-right.png").default.src} className="h-100"/>
+                        <img style={{maxWidth:"none"}} src={require("./images/welcome/welcome-right.png").default.src} className="h-100"/>
                     </div>
                   </div>
               </div>
