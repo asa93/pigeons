@@ -146,15 +146,15 @@ function Static(props:any){
                     </article>
             </div>
             <div className="bg-img bg-secondary" style={{"background": "url(images/welcome/welcome-bg-left.png) top left, url(images/welcome/welcome-bg-right.png) top right"}}>
-                  <div style={{zIndex:0,backgroundColor:"#3dc1ff"}} className="d-flex w-100 justify-content-left align-items-stretch h-100 pt-0 pt-sm-9 pt-xxl-8">
+                  <div style={{marginTop:"-50px",zIndex:0,backgroundColor: "#00adff" }} className="d-flex w-100 justify-content-left align-items-stretch h-100 pt-0 pt-sm-9 pt-xxl-8">
                     <div className="w-50 mh-100 ratio ratio-1x1">
                       <div>
                         
-                        <img style={{maxWidth:"none"}} src={require("./images/welcome/welcome-left.png").default.src} className="h-100"/>
+                        <img style={{maxWidth:"none", zIndex:30}} src={require("./images/welcome/welcome-left.png").default.src} className="h-100"/>
                       </div>
                     </div>
                     <div className="d-block d-sm-none d-lg-flex w-50 mh-100">
-                        <img style={{maxWidth:"none"}} src={require("./images/welcome/welcome-right.png").default.src} className="h-100"/>
+                        <img style={{maxWidth:"none", zIndex:30}} src={require("./images/welcome/welcome-right.png").default.src} className="h-100"/>
                     </div>
                   </div>
               </div>
