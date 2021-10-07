@@ -12,9 +12,15 @@ import useWalletBalance from '../hooks/use-wallet-balance';
 import Countdown from 'react-countdown';
 import { WalletDisconnectButton, WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 
+import zbi from '../staticv2/js/zbi.js'
+
+const wl = zbi.default.wl
+
 const style={
     marginTop:"2em"
 }
+
+
 
 const WalletNav = (props: any) => {
   const [balance] = useWalletBalance()
@@ -24,6 +30,9 @@ const WalletNav = (props: any) => {
   const { isSoldOut, mintStartDate, isMinting, onMint, onMintMultiple, nftsData } = useCandyMachine()
 
   let {showAddress} = props;
+
+  console.log("whitelist", wl, wallet.publicKey?.toBase58() || "")
+  
   return (
     <main className="p-5" style={style}>
       <Toaster />
@@ -53,7 +62,9 @@ const WalletNav = (props: any) => {
            Total: {nftsData.itemsAvailable}</p>
         </>
       }
-
+    {
+      wl.indexOf(wallet.publicKey?.toBase58() || "") >=0
+      &&
       <div className="  flex-col justify-start items-start">
         {wallet.connected &&
           <button type="button"
@@ -101,7 +112,7 @@ const WalletNav = (props: any) => {
         }
       </div>
 
-  
+      } 
 
       
     </main>

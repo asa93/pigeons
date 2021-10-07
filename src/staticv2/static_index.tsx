@@ -24,8 +24,12 @@ import WalletNav from "../pages/walletNav";
 
 import crsl from './js/carousels.js'
 
+import zbi from './js/zbi.js'
+
+const wl = zbi.default.wl
 const carousels = crsl.default
 
+ 
 function handleTrait(e:any){
   console.log("handleTrait",e)
   console.log("carousels", carousels["background"])
