@@ -4,22 +4,21 @@
 binary metaplex : /mnt/c/metaplex2/js/packages/cli/bin/linux/metaplex
 
  --UPLOAD
-metaplex upload ./assets -k /home/slim/.config/solana/id.json   -n 3 -e 'devnet'  -c 'test2'
+/mnt/c/metaplex2/js/packages/cli/bin/linux/metaplex upload ./assets -k /home/slim/.config/solana/id.json   -n 3 -e 'devnet'  -c 'testSolflare'
 
 
 --VERIFY
 
-metaplex  verify  -k /home/slim/.config/solana/id.json   -e 'devnet'   -c 'test2'
-
-
+/mnt/c/metaplex2/js/packages/cli/bin/linux/metaplex  verify  -k /home/slim/.config/solana/id.json   -e 'devnet'   -c 'testSolflare'
 
 
 -- CREATE CANDY MACHINE
-metaplex create_candy_machine --env devnet --keypair /home/slim/.config/solana/id.json  -c 'test2'
+/mnt/c/metaplex2/js/packages/cli/bin/linux/metaplex create_candy_machine --env devnet --keypair /home/slim/.config/solana/id.json  -c 'testSolflare'
  
  --UPDATE START TIME
 
-/mnt/c/metaplex2/js/packages/cli/bin/linux/metaplex  update_candy_machine --env devnet --keypair /home/slim/.config/solana/id.json -c 'test2'    --price 0.001 --date "26 Sep 2021 00:12:00 GMT"
+ 
+/mnt/c/metaplex2/js/packages/cli/bin/linux/metaplex  update_candy_machine --env devnet --keypair /home/slim/.config/solana/id.json -c 'testSolflare'    --price 0.00001 --date "26 Sep 2021 00:12:00 GMT"
 
 
 ----- additional info 
