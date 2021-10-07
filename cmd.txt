@@ -1,20 +1,21 @@
 
  
 
+binary metaplex : /mnt/c/metaplex2/js/packages/cli/bin/linux/metaplex
 
  --UPLOAD
-/mnt/c/metaplex2/js/packages/cli/bin/linux/metaplex upload ./assets -k /home/slim/.config/solana/id.json   -n 3 -e 'devnet'  -c 'test2'
+metaplex upload ./assets -k /home/slim/.config/solana/id.json   -n 3 -e 'devnet'  -c 'test2'
 
 
 --VERIFY
 
-metaplex verify  -k /home/slim/.config/solana/id.json   -e 'devnet'   -c 'test2'
+metaplex  verify  -k /home/slim/.config/solana/id.json   -e 'devnet'   -c 'test2'
 
 
 
 
 -- CREATE CANDY MACHINE
-/mnt/c/metaplex2/js/packages/cli/bin/linux/metaplex  create_candy_machine --env devnet --keypair /home/slim/.config/solana/id.json  -c 'test2'
+metaplex create_candy_machine --env devnet --keypair /home/slim/.config/solana/id.json  -c 'test2'
  
  --UPDATE START TIME
 
