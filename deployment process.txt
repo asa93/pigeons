@@ -1,0 +1,15 @@
+deployment process 
+________________
+
+
+6h at least before presale :
+
+- check folders assets NFT
+- use cmd.txt instructions to mint 
+- make sure that price & start date (GMT) is correct
+- setup presale time & whitelist 
+- deploy app to vercel 
+- set env variable
+
+2h at least before presale
+- redirect domain name to pigeons.kiai.app 
