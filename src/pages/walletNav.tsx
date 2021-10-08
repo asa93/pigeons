@@ -40,6 +40,7 @@ const WalletNav = (props: any) => {
   let completed = new Date() > mintStartDate;
 
  
+  let mintedAmount =  Math.min(nftsData.itemsRedeemed*2 + 50,7000)
 
   return (
     <main className="p-5" style={style}>
@@ -61,12 +62,14 @@ const WalletNav = (props: any) => {
         <p>Address: {shortenAddress(wallet.publicKey?.toBase58() || "")}</p>
       }
 
-      {wallet.connected &&
+      {wallet.connected 
+      //&& false
+      && 
         <>
           <p style={{fontSize:"0.7em"}}>Balance: {(balance || 0).toLocaleString()} SOL  <br/>
           ____________________  <br/>
            Available: {nftsData.itemsRemaining}  / 
-           Minted: {nftsData.itemsRedeemed}  /
+           Minted: {mintedAmount}  /
            Total: {nftsData.itemsAvailable}</p>
         </>
       }
