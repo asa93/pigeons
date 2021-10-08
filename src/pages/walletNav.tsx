@@ -39,12 +39,8 @@ const WalletNav = (props: any) => {
   const isWl = wl.indexOf(wallet.publicKey?.toBase58() || "") >=0
   let completed = new Date() > mintStartDate;
 
-  console.log("whitelist", wl, wallet.publicKey?.toBase58() || "")
-  console.log("mintStartDate", mintStartDate, "presaleEndDate",presaleEndDate, "now", new Date() )
-  console.log("new Date() > presaleEndDate", new Date() > presaleEndDate)
  
-  console.log("connected", wallet.publicKey)
-  console.log("connected", wallet.publicKey)
+
   return (
     <main className="p-5" style={style}>
       <Toaster />
@@ -76,7 +72,8 @@ const WalletNav = (props: any) => {
       }
     {
       wallet.connected 
-      && ( (new Date() > mintStartDate && isWl) || new Date() > presaleEndDate ) 
+      && mintStartDate.getTime() > 9999999999
+      && ( (   new Date() > mintStartDate && isWl) || ( new Date() > presaleEndDate) ) 
       &&
       <div className="  flex-col justify-start items-start">
         {wallet.connected &&
