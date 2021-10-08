@@ -42,7 +42,8 @@ const WalletNav = (props: any) => {
   console.log("whitelist", wl, wallet.publicKey?.toBase58() || "")
   console.log("mintStartDate", mintStartDate, "presaleEndDate",presaleEndDate, "now", new Date() )
   console.log("new Date() > presaleEndDate", new Date() > presaleEndDate)
-  console.log("completed", completed)
+ 
+  console.log("connected", wallet.publicKey)
   console.log("connected", wallet.publicKey)
   return (
     <main className="p-5" style={style}>
@@ -74,8 +75,8 @@ const WalletNav = (props: any) => {
         </>
       }
     {
-      
-      ( (new Date() > mintStartDate && isWl) || new Date() > presaleEndDate ) 
+      wallet.connected 
+      && ( (new Date() > mintStartDate && isWl) || new Date() > presaleEndDate ) 
       &&
       <div className="  flex-col justify-start items-start">
         {wallet.connected &&
@@ -128,13 +129,15 @@ const WalletNav = (props: any) => {
 
 {
   (new Date() < mintStartDate)
-  && <span>Mint not started yet. <Countdown date={mintStartDate} /> </span>
+  && <span>Mint starting soon : <Countdown date={mintStartDate} /> </span>
 
 }
 {
-  !isWl && new Date() < presaleEndDate && new Date() < mintStartDate
+  !isWl && new Date() < presaleEndDate && new Date() > mintStartDate
 
-  &&  <span>Mint only open for whitelisted presales. <Countdown date={presaleEndDate} /> </span>
+  &&  <div> <span>Mint only open for whitelisted addr.  </span>
+        <br/> <span> Presale soon: <Countdown date={presaleEndDate} /></span>
+    </div>
 }
       
     </main>
