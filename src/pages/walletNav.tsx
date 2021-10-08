@@ -14,6 +14,8 @@ import { WalletDisconnectButton, WalletMultiButton } from '@solana/wallet-adapte
 
 import zbi from '../staticv2/js/zbi.js'
 
+ 
+
 const  {wl, prsl_time} = zbi.default
  
 const style={
@@ -35,10 +37,13 @@ const WalletNav = (props: any) => {
   presaleEndDate.setHours( presaleEndDate.getHours() + prsl_time);
 
   const isWl = wl.indexOf(wallet.publicKey?.toBase58() || "") >=0
+  let completed = new Date() > mintStartDate;
+
   console.log("whitelist", wl, wallet.publicKey?.toBase58() || "")
   console.log("mintStartDate", mintStartDate, "presaleEndDate",presaleEndDate, "now", new Date() )
   console.log("new Date() > presaleEndDate", new Date() > presaleEndDate)
-
+  console.log("completed", completed)
+  console.log("connected", wallet.publicKey)
   return (
     <main className="p-5" style={style}>
       <Toaster />
@@ -70,7 +75,7 @@ const WalletNav = (props: any) => {
       }
     {
       
-      ( isWl || new Date() > presaleEndDate ) 
+      ( (new Date() > mintStartDate && isWl) || new Date() > presaleEndDate ) 
       &&
       <div className="  flex-col justify-start items-start">
         {wallet.connected &&
@@ -87,7 +92,7 @@ const WalletNav = (props: any) => {
               <span>MINT {isMinting && 'LOADING...'}</span> :
               <Countdown
                 date={mintStartDate}
-                onMount={({ completed }) => completed && setIsActive(true)}
+                onMount={() => { if(completed) setIsActive(true)}}
                 onComplete={() => setIsActive(true)}
                 renderer={renderCounter}
               />
@@ -121,6 +126,16 @@ const WalletNav = (props: any) => {
 
       } 
 
+{
+  (new Date() < mintStartDate)
+  && <span>Mint not started yet. <Countdown date={mintStartDate} /> </span>
+
+}
+{
+  !isWl && new Date() < presaleEndDate && new Date() < mintStartDate
+
+  &&  <span>Mint only open for whitelisted presales. <Countdown date={presaleEndDate} /> </span>
+}
       
     </main>
      
