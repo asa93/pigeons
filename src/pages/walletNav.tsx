@@ -14,8 +14,8 @@ import { WalletDisconnectButton, WalletMultiButton } from '@solana/wallet-adapte
 
 import zbi from '../staticv2/js/zbi.js'
 
-const wl = zbi.default.wl
-
+const  {wl, prsl_time} = zbi.default
+ 
 const style={
     marginTop:"2em"
 }
@@ -31,8 +31,14 @@ const WalletNav = (props: any) => {
 
   let {showAddress} = props;
 
+  let presaleEndDate = new Date(mintStartDate.getTime())
+  presaleEndDate.setHours( presaleEndDate.getHours() + prsl_time);
+
+  const isWl = wl.indexOf(wallet.publicKey?.toBase58() || "") >=0
   console.log("whitelist", wl, wallet.publicKey?.toBase58() || "")
-  
+  console.log("mintStartDate", mintStartDate, "presaleEndDate",presaleEndDate, "now", new Date() )
+  console.log("new Date() > presaleEndDate", new Date() > presaleEndDate)
+
   return (
     <main className="p-5" style={style}>
       <Toaster />
@@ -63,7 +69,8 @@ const WalletNav = (props: any) => {
         </>
       }
     {
-      wl.indexOf(wallet.publicKey?.toBase58() || "") >=0
+      
+      ( isWl || new Date() > presaleEndDate ) 
       &&
       <div className="  flex-col justify-start items-start">
         {wallet.connected &&
