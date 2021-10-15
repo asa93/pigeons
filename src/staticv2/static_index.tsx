@@ -40,12 +40,19 @@ function handleTrait(e:any){
 
 function Static(props:any){
 
-  const [balance] = useWalletBalance()
-  const [isActive, setIsActive] = useState(false); // true when countdown completes
-  const wallet = useWallet();
+ 
+  // useEffect(  () => {
+  //   // Met à jour le titre du document via l’API du navigateur
+  //   while(1){  
+  //     //check every 10s
+  //     (async function func(){  await sleep(10*1000)  })()
+  //     console.log("zebi")
+  //   }
+  // });
 
-  const { isSoldOut, mintStartDate, isMinting, onMint, onMintMultiple, nftsData } = useCandyMachine()
 
+  console.log("Render Static")
+ 
       return (
  
  
@@ -600,3 +607,6 @@ function Static(props:any){
  
  
 
+   function sleep(milliseconds:Number)  {
+    return new Promise(resolve => setTimeout(resolve, milliseconds))
+   }
