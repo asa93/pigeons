@@ -4,27 +4,53 @@
 binary metaplex : /mnt/c/metaplex2/js/packages/cli/bin/linux/metaplex
 
  --UPLOAD
-/mnt/c/metaplex2/js/packages/cli/bin/linux/metaplex upload ./assets -k /home/slim/.config/solana/id.json   -n 3 -e 'devnet'  -c 'testSolflare'
+
+/mnt/c/metaplex2/js/packages/cli/bin/linux/metaplex upload ./assets   -k /home/slim/.config/solana/id.json  -n 3 -e devnet  -c 'test3'  
 
 
 --VERIFY
 
-/mnt/c/metaplex2/js/packages/cli/bin/linux/metaplex  verify  -k /home/slim/.config/solana/id.json   -e 'devnet'   -c 'testSolflare'
+/mnt/c/metaplex2/js/packages/cli/bin/linux/metaplex  verify  -k /home/slim/.config/solana/id.json   -e devnet  -c 'test3' —log-level trace
 
 
 -- CREATE CANDY MACHINE
-/mnt/c/metaplex2/js/packages/cli/bin/linux/metaplex create_candy_machine --env devnet --keypair /home/slim/.config/solana/id.json  -c 'testSolflare'
+/mnt/c/metaplex2/js/packages/cli/bin/linux/metaplex create_candy_machine --env devnet --keypair /home/slim/.config/solana/id.json  -c 'test3'
  
- --UPDATE START TIME
+-- UPDATE START TIME
 
- 
-/mnt/c/metaplex2/js/packages/cli/bin/linux/metaplex  update_candy_machine --env devnet --keypair /home/slim/.config/solana/id.json -c 'testSolflare'    --price 0.00001 --date "26 Sep 2021 00:12:00 GMT"
+/mnt/c/metaplex2/js/packages/cli/bin/linux/metaplex  update_candy_machine --env devnet --keypair /home/slim/.config/solana/id.json -c 'test3'    --price 0.8 --date "17 Oct 2021 19:00:00 GMT+0200"
 
+--- MINT 
 
------ additional info 
+/mnt/c/metaplex2/js/packages/cli/bin/linux/metaplex  mint_one_token --env devnet --keypair /home/slim/.config/solana/id.json -c 'test3'  
 
+-after minting you get transaction id
+-> paste it in solscan (check network), the minted token is in overview > signer.
+
+-to transfer it use
+ spl-token transfer token_address token_amount recipient_address --fund-recipient
+
+  
+spl-token transfer Fgsnt65GgFSmu2bXN2xs5ozDckggxxFEG8hv22FYL5ks 1 FcLhxqudFpvqFwMtRdiciQLaFavyz3jc5Eyc3vEg9SVn  --fund-recipient 
+
+=============== SOLANA COMMANDS
+
+---- airdrop
 solana airdrop 1 FcLhxqudFpvqFwMtRdiciQLaFavyz3jc5Eyc3vEg9SVn --url https://api.devnet.solana.com 
 
+----- change environment
+solana config set --url https://api.devnet.solana.com
+
+solana config set --url https://api.mainnet-beta.solana.com
+
+
+---- get current environment 
+solana config get 
+---- transfer nft 
+ spl-token transfer token_address token_amount recipient_address --fund-recipient
+
+
+============ METAPLEX INSTALLATION
 export PATH=~$PATH:/mnt/c/metaplex/js/packages/cli/bin/linux
 
 après installation de metaplex
@@ -47,6 +73,11 @@ l'appli se trouve dans src/utils/candy-machine.tsx
 
 il faut que treasury_address = mint authority dans le cache
 
-
+-----------------------------------------------
+METAPLEX ERRORS
+https://hackmd.io/@archaeopteryx/By4bpbA4F#Program-Errors
 
 solana-keygen verify F2BUCQtfqFhAHJWssDGf4czMWdhbpLAVm7R87nRJGtJV /home/slim/.config/solana/candyfactory-devnet.json
+
+--------------
+
