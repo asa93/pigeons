@@ -140,7 +140,7 @@ const WalletNav = (props: any) => {
   !isWl && new Date() < presaleEndDate && new Date() > mintStartDate
 
   &&  <div> <span>Mint only open for whitelisted addr.  </span>
-        <br/> <span> Presale soon: <Countdown date={presaleEndDate} /></span>
+        <br/> <span> Public mint soon: <Countdown date={presaleEndDate} /></span>
     </div>
 }
       
