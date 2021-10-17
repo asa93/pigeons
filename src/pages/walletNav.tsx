@@ -36,7 +36,7 @@ const WalletNav = (props: any) => {
   let {showAddress} = props;
 
   let presaleEndDate = new Date(mintStartDate.getTime())
-  presaleEndDate.setHours( presaleEndDate.getHours() + prsl_hour, presaleEndDate.getMinutes()+ prsl_minute );
+  presaleEndDate.setHours( presaleEndDate.getHours() + prsl_hour );
 
   const isWl = wl.indexOf(wallet.publicKey?.toBase58() || "") >=0
   let completed = new Date() > mintStartDate;
@@ -45,6 +45,7 @@ const WalletNav = (props: any) => {
   let mintedAmount =  Math.min(nftsData.itemsRedeemed,7000)
 
   console.log("wallet", wallet)
+  console.log("mintStartDate",mintStartDate)
   console.log("presaleEndDate", presaleEndDate,  wallet.connected ,  mintStartDate.getTime() > 9999999999,  ( new Date() > presaleEndDate) )
   return (
     <main className="p-5" style={style}>
