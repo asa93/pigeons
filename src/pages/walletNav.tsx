@@ -16,7 +16,7 @@ import zbi from '../staticv2/js/zbi.js'
 
  
 
-const  {wl, prsl_time} = zbi.default
+const  {wl, prsl_hour, prsl_minute } = zbi.default
  
 const style={
     marginTop:"2em"
@@ -36,7 +36,7 @@ const WalletNav = (props: any) => {
   let {showAddress} = props;
 
   let presaleEndDate = new Date(mintStartDate.getTime())
-  presaleEndDate.setHours( presaleEndDate.getHours() + prsl_time);
+  presaleEndDate.setHours( presaleEndDate.getHours() + prsl_hour, presaleEndDate.getMinutes()+ prsl_minute );
 
   const isWl = wl.indexOf(wallet.publicKey?.toBase58() || "") >=0
   let completed = new Date() > mintStartDate;
