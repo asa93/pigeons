@@ -18,11 +18,11 @@ binary metaplex : /mnt/c/metaplex2/js/packages/cli/bin/linux/metaplex
  
 -- UPDATE START TIME
 
-/mnt/c/metaplex2/js/packages/cli/bin/linux/metaplex  update_candy_machine --env devnet --keypair /home/slim/.config/solana/id.json -c 'test3'    --price 0.8 --date "17 Oct 2021 19:00:00 GMT+0200"
+/mnt/c/metaplex2/js/packages/cli/bin/linux/metaplex  update_candy_machine --env mainnet-beta --keypair /home/slim/.config/solana/id.json -c 'final'    --price 0.8 --date "17 Oct 2021 19:00:00 GMT+0200"
 
 --- MINT 
 
-/mnt/c/metaplex2/js/packages/cli/bin/linux/metaplex  mint_one_token --env devnet --keypair /home/slim/.config/solana/id.json -c 'test3'  
+/mnt/c/metaplex2/js/packages/cli/bin/linux/metaplex  mint_one_token --env mainnet-beta --keypair /home/slim/.config/solana/id.json -c 'final'  
 
 -after minting you get transaction id
 -> paste it in solscan (check network), the minted token is in overview > signer.
@@ -31,7 +31,7 @@ binary metaplex : /mnt/c/metaplex2/js/packages/cli/bin/linux/metaplex
  spl-token transfer token_address token_amount recipient_address --fund-recipient
 
   
-spl-token transfer Fgsnt65GgFSmu2bXN2xs5ozDckggxxFEG8hv22FYL5ks 1 FcLhxqudFpvqFwMtRdiciQLaFavyz3jc5Eyc3vEg9SVn  --fund-recipient 
+spl-token transfer 2THfTmb8pFLEm9x5C6vgBppCXfgZQ5BcYBChYApFDJSU 1 FcLhxqudFpvqFwMtRdiciQLaFavyz3jc5Eyc3vEg9SVn  --fund-recipient 
 
 =============== SOLANA COMMANDS
 
@@ -43,6 +43,7 @@ solana config set --url https://api.devnet.solana.com
 
 solana config set --url https://api.mainnet-beta.solana.com
 
+solana config set --url https://little-white-bird.solana-mainnet.quiknode.pro/43e64ae0df71598c33f4252681b4051b2b750b2e/
 
 ---- get current environment 
 solana config get 

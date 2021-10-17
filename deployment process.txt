@@ -4,12 +4,22 @@ ________________
 
 6h at least before presale :
 
-- check folders assets NFT
-- use cmd.txt instructions to mint 
+- check folders assets NFT, check 35 first pics
+- use cmd.txt instructions to deploy pics & metadata
+
 - make sure that price & start date (GMT) is correct
 - setup presale time & whitelist 
-- deploy app to vercel 
 - set env variable
+- deploy app to vercel test 
 
-2h at least before presale
-- redirect domain name to pigeons.kiai.app 
+- test whitelist on vercel app 
+
+- redirect domain to webapp
+
+- mirror site 
+
+after presale :
+mint MINT 
+
+ 
+ 
