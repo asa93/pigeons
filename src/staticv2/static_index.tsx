@@ -606,7 +606,3 @@ function Static(props:any){
   export default Static;
  
  
-
-   function sleep(milliseconds:Number)  {
-    return new Promise(resolve => setTimeout(resolve, milliseconds))
-   }
