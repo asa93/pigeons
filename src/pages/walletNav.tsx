@@ -29,7 +29,9 @@ const WalletNav = (props: any) => {
   const [isActive, setIsActive] = useState(false); // true when countdown completes
   const wallet = useWallet();
 
-  const { isSoldOut, mintStartDate, isMinting, onMint, onMintMultiple, nftsData } = useCandyMachine()
+  const candyData = useCandyMachine()
+  console.log("candyData", candyData)
+  const { isSoldOut, mintStartDate, isMinting, onMint, onMintMultiple, nftsData } =  candyData;
 
   let {showAddress} = props;
 
@@ -40,8 +42,10 @@ const WalletNav = (props: any) => {
   let completed = new Date() > mintStartDate;
 
  
-  let mintedAmount =  Math.min(nftsData.itemsRedeemed*2 + 50,7000)
+  let mintedAmount =  Math.min(nftsData.itemsRedeemed,7000)
 
+  console.log("wallet", wallet)
+  console.log("presaleEndDate", presaleEndDate,  wallet.connected ,  mintStartDate.getTime() > 9999999999,  ( new Date() > presaleEndDate) )
   return (
     <main className="p-5" style={style}>
       <Toaster />
@@ -66,7 +70,7 @@ const WalletNav = (props: any) => {
       //&& false
       && 
         <>
-          <p style={{fontSize:"0.7em"}}>Balance: {(balance || 0).toLocaleString()} SOL  <br/>
+          <p style={{fontSize:"0.7em"}}>Balance: {(balance || 0).toLocaleString()} SOL / Mint Price : 0.8 SOL  <br/>
           ____________________  <br/>
            Available: {nftsData.itemsRemaining}  / 
            Minted: {mintedAmount}  /

@@ -433,7 +433,7 @@ function Static(props:any){
                       <div className="collapse" id="collapseThree">
                         <div className="card card-body">
                            <p>
-                          We are expected to go live on Solana on October 9th! Exact day and time to be determined (follow our social channels for exact day and time). We expect that Pudgy Pigeons will be priced at a flat rate of 2 SOL. We will consult with the community to determine and establish rules to make sure that our launch is fair and all the members of the Pudgy Pigeons Squad are able to get a Pudgy Pigeon.
+                          We are expected to go live on Solana on October 9th! Exact day and time to be determined (follow our social channels for exact day and time). We expect that Pudgy Pigeons will be priced at a flat rate of 0.8 SOL. We will consult with the community to determine and establish rules to make sure that our launch is fair and all the members of the Pudgy Pigeons Squad are able to get a Pudgy Pigeon.
                         </p>
                         </div>
                       </div>
